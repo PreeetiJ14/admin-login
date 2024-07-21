@@ -1,0 +1,1566 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+
+:root {
+    --brand: #ff4d29;
+    --dark: #092032;
+    --body: #516171;
+    --border: rgba(0, 0, 0, 0.08);
+    --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+    --bs-gutter-y: 0;
+}
+
+body {
+    font-family: "Barlow", sans-serif;
+    color: var(--body);
+    line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.barlow-semi-condensed-thin {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* top header css starts */
+.top-header {
+    background-color: #ff4d29;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 20px;
+}
+
+.left-top-header .fa {
+    padding: 5px;
+}
+
+.left-top-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.right-top-header .fa-brands {
+    color: white;
+    background-color: rgba(249, 187, 164, 0.412);
+    padding: 5px;
+    font-size: 14px;
+    width: 17px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logo-img {
+    height: 15vh;
+    padding-top: 30px;
+}
+
+.logo-img img {
+    height: 100%;
+}
+
+.title h1 {
+    font-size: 16px;
+}
+
+.title p {
+    font-size: 39px;
+    color: #a12638;
+    margin-top: -13px;
+    margin-bottom: -18px;
+}
+
+.title {
+    text-align: center;
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    padding: 10px 20px;
+}
+
+@media (max-width: 920px) {
+    .title p {
+        font-size: 14px;
+    }
+
+    .title h1 {
+        font-size: 10px;
+    }
+
+    .logo-img {
+        height: 10vh;
+        padding-top: 5px;
+    }
+}
+
+/* title css end */
+
+/* navbar css starts */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+
+   
+    top: 0px;
+    background-color: #fff;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+
+
+.nav-container {
+    padding: 0 2rem;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+}
+
+
+
+.nav-btn {
+    flex: 3;
+    display: flex;
+}
+
+.nav-links {
+    flex: 2;
+}
+
+
+.nav-links>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link>a {
+    line-height: 3rem;
+    color: #092032;
+    padding: 0 .8rem;
+    /* letter-spacing: 1px; */
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .5s;
+    font-weight: 500;
+}
+
+.nav-link>a>i {
+    margin-left: .2rem;
+}
+
+.nav-link:hover>a {
+    transform: scale(1.1);
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: -35px;
+    width: 13rem;
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.dropdown ul {
+    position: relative;
+}
+
+.dropdown-link>a {
+    display: flex;
+    background-color: #fff;
+    color: #092032;
+    padding: .5rem 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+    transition: .3s;
+}
+
+.dropdown-link:hover>a {
+    background-color: #ff4d29;
+    color: #fff;
+}
+
+.dropdown-link:not(:nth-last-child(2)) {
+    border-bottom: 1px solid #efefef;
+}
+
+.dropdown-link i {
+    transform: rotate(-90deg);
+}
+
+
+
+
+
+.dropdown-link {
+    position: relative;
+}
+
+.dropdown.second {
+    top: 0;
+    left: 65%;
+    padding-left: .8rem;
+    cursor: pointer;
+    transform: translateX(10px);
+}
+
+
+.nav-link:hover>.dropdown,
+.dropdown-link:hover>.dropdown {
+    transform: translate(0, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hamburger-menu-container {
+    flex: 1;
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger-menu {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger-menu div {
+    width: 1.6rem;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #092032;
+    position: relative;
+    z-index: 1001;
+    transition: .5s;
+}
+
+.hamburger-menu div:before,
+.hamburger-menu div:after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #092032;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+.hamburger-menu div:before {
+    transform: translateY(-7px);
+}
+
+.hamburger-menu div:after {
+    transform: translateY(7px);
+}
+
+#check {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    z-index: 90000;
+    cursor: pointer;
+    opacity: 0;
+    display: none;
+}
+
+#check:checked~.hamburger-menu-container .hamburger-menu div {
+    background-color: transparent;
+}
+
+#check:checked~.hamburger-menu-container .hamburger-menu div:before {
+    transform: translateY(0) rotate(-45deg);
+}
+
+#check:checked~.hamburger-menu-container .hamburger-menu div:after {
+    transform: translateY(0) rotate(45deg);
+}
+
+@keyframes animation {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@media (min-width: 920px) {
+    .nav-link>a {
+        font-size:10px;
+    }
+}
+@media (min-width: 1440px) {
+    .nav-link>a {
+        font-size:14px;
+    }
+}
+@media (max-width: 920px) {
+    .hamburger-menu-container {
+        display: flex;
+    }
+
+    #check {
+        display: block;
+    }
+
+    .nav-btn {
+        position: fixed;
+        height: calc(100vh - 3rem);
+        top: 3rem;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: .65s;
+    }
+
+    #check:checked~.nav-btn {
+        transform: translateX(0);
+    }
+
+    #check:checked~.nav-btn .nav-link,
+    #check:checked~.nav-btn .log-sign {
+        animation: animation .5s ease forwards var(--i);
+    }
+
+    .nav-links {
+        flex: initial;
+        width: 100%;
+    }
+
+    .nav-links>ul {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        width: 100%;
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    .nav-link>a {
+        line-height: 1;
+        padding: 1.6rem 2rem;
+    }
+
+    .nav-link:hover>a {
+        transform: scale(1);
+        background-color: #fff;
+    }
+
+    .dropdown,
+    .dropdown.second {
+        position: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        opacity: 1;
+        pointer-events: auto;
+        width: 100%;
+        padding: 0;
+        background-color: #092032;
+        display: none;
+    }
+
+    .nav-link:hover>.dropdown,
+    .dropdown-link:hover>.dropdown {
+        display: block;
+    }
+
+    .nav-link:hover>a>i,
+    .dropdown-link:hover>a>i {
+        transform: rotate(360deg);
+    }
+
+    .dropdown-link>a {
+        background-color: transparent;
+        color: #fff;
+        padding: 1.2rem 2rem;
+        line-height: 1;
+    }
+
+    .dropdown.second .dropdown-link>a {
+        padding: 1.2rem 2rem 1.2rem 3rem;
+    }
+
+    .dropdown.second .dropdown.second .dropdown-link>a {
+        padding: 1.2rem 2rem 1.2rem 4rem;
+    }
+
+    .dropdown-link:not(:nth-last-child(2)) {
+        border-bottom: none;
+    }
+
+
+
+    .dropdown-link:hover>a {
+        background-color: #ff4d29;
+    }
+
+    .nav-link>a>i {
+        font-size: 1.1rem;
+        transform: rotate(-90deg);
+        transition: .7s;
+    }
+
+    .dropdown i {
+        font-size: 1rem;
+        transition: .7s;
+    }
+
+
+}
+
+.contact {
+    background-color: #ff4d29;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* navbar css ends */
+
+
+/* Footer css starts */
+
+footer button {
+        border: none;
+        background-color: #00093c;
+    }
+    
+    footer button a {
+        color: #fff;
+        text-decoration: underline;
+    }
+    
+    footer button a:hover {
+        color: #ff4d29;
+    }
+    
+    footer {
+        width: 100%;
+        bottom: 0;
+        background: linear-gradient(to right, #00093c, #2d0b00);
+        color: #fff;
+        padding: 50px 0 10px; /* Adjusted padding */
+        border-top-left-radius: 125px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    
+    footer .row {
+        width: 85%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    
+    footer .col {
+        flex-basis: 19%;
+        padding: 10px;
+    }
+    
+    footer .col:nth-child(2),
+    footer .col:nth-child(3) {
+        flex-basis: 15%;
+    }
+    
+    footer .logo {
+        width: 115px;
+        border-radius: 50%;
+    }
+    
+    footer .col h3 {
+        width: fit-content;
+        margin-bottom: 20px;
+        position: relative;
+        color: #fff;
+    }
+    
+    footer .email-id {
+        width: fit-content;
+        border-bottom: 1px solid #ccc;
+        margin: 20px 0;
+    }
+    
+    footer ul li {
+        list-style: none;
+        margin-bottom: 12px;
+    }
+    
+    footer ul {
+        padding-left: 0;
+    }
+    
+    footer ul li a {
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    footer hr {
+        width: 90%;
+        border: 0;
+        border-bottom: 1px solid #ccc;
+        margin: 20px auto;
+    }
+    
+    footer .copyright {
+        text-align: center;
+    }
+    
+    footer .underline {
+        width: 100%;
+        height: 5px;
+        background: #767676;
+        border-radius: 3px;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        overflow: hidden;
+    }
+    
+    footer .underline span {
+        width: 15px;
+        height: 100%;
+        background: #fff;
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        animation: moving 2s linear infinite;
+    }
+    
+    /* @media query of footer */
+    @keyframes moving {
+        0% {
+            left: -20px;
+        }
+    
+        100% {
+            left: 100px;
+        }
+    }
+    
+    /* @ media query of footer ends*/
+    footer .copyright a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+    }
+    
+    footer .copyright a:hover {
+        color: #ff4d29;
+    }
+    
+    /* Footer css ends */
+        /* new about starts */
+        .about-us h1{
+            text-align: center;
+        }
+        .para{
+    text-align: justify;
+    font-size: 20px;
+    padding-top: 30px;
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif !important;
+    padding: 0 20px 0 30px;
+    border-left: 2px solid #000;
+    height: 211px;
+    position: relative;
+    width: 50%;
+}
+        .about-img
+        {
+            text-align: center;
+            width:50%;
+            
+        }
+        .about-img img{
+            width:100%;
+            display: flex;
+            flex-direction: column;
+        }
+</style>
+<body>
+      <!--header starts -->
+      <header>
+        <!-- top header -->
+        <div class="top-header">
+            <div class="left-top-header">
+                <i class="fa fa-envelope"></i>info@gmail.com
+                <i class="fa  fa-phone"></i>123-456-789
+            </div>
+            <div class="right-top-header">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="#"> <i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+        <!-- <div class="top-header">
+        <div class="container">
+            <b>
+                <i class="fa-solid fa-envelope"></i>
+                info@gmail.com
+                <i class="fa-solid fa-phone"> </i>
+                    123-456-789
+            </b>
+                <div class="items">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="#"> <i class="fa-brands fa-pinterest"></i></a>
+                </div>
+           </div>
+        </div> -->
+        <!--main menu starts-->
+        <div class="main">
+            <div class="logo-img"><img src="data:image/jpeg;base64,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"></div>
+            <div class="title">
+
+                <h1>ABCSDFGHJIK</h1>
+
+
+                <p>MagicCode IT Solutions</p>
+
+            </div>
+            <div class="logo-img"><img src="data:image/jpeg;base64,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"></div>
+        </div>
+        <!--main ends-->
+        <!--navbar starts-->
+        <div class="top-nav">
+            <nav>
+                <div class="nav-container">
+                    <input type="checkbox" name="" id="check">
+
+
+
+                    <div class="nav-btn">
+                        <div class="nav-links">
+                            <ul>
+                                <li class="nav-link" style="--i: .6s">
+                                    <a href="#">Home</a>
+                                </li>
+
+                                <!-- about us starts -->
+                                <li class="nav-link" style="--i: 1.1s">
+                                    <a href="#">About Us<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">Vision and Mission</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">About WTES </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="about_us.html">About College </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Governing Body </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">CDC</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Code of Conduct </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Committees <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Statutory Committees <i
+                                                                    class="fas fa-caret-down"></i></a>
+                                                            <div class="dropdown second">
+                                                                <ul>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">CDC – College Development Committee
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">ICC – Internal Complaint Committee
+                                                                            (As per Central Govt. Act. 2013)</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Staff on Students’ Council (As per
+                                                                            MUA 2016) </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Students’ Council </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Spatial Reservation Cell (Standing
+                                                                            Committee) </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Discipline, Grievance and Redressal
+                                                                            Committee (As per MUA 2016)</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Anti-Ragging Committee (As per SU
+                                                                            Statute) </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Minority and Equal Opportunity Cell
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Academic Committees <i
+                                                                    class="fas fa-caret-down"></i></a>
+                                                            <div class="dropdown second">
+                                                                <ul>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">IQAC – Internal Quality Assurance
+                                                                            Cell </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">NAAC Criterion-wise Committees</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">RUSA Committee</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">AISHE Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Examination Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Admission Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Lead College Activities Committee
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">NEP - 2020 Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">NAAC Criterion-wise Committees</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">RUSA Committee</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">AISHE Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Examination Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Admission Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Lead College Activities Committee
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">NEP - 2020 Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Academics Bank of Credit (ABC)
+                                                                            Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Alumni Association </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Placement and Counselling Cell </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Scholarship Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Institutional Avishkar Committee
+                                                                            (IAC) </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Library Advisory Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Cultural Activities Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Student Welfare Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">NSS Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Gymkhana Committee </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Commerce Association </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Literary Association </a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Study Tour Committee </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Other Committees<i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Vivek Vahini and Science Forum </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Programme and Courses <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. A.</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. Com. (Regular)</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. Com. IT </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. Sc.</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. B. A.</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. C. A. </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. C. S. </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">M. Com.</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">M. C. A.</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">DIT</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Other Certificate Courses</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Distance Education</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Faculty and Staff <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Junior Wing </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Senior Wing </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Administrative Staff </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- about us ends -->
+                                <!-- academics starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Academic <i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">Academic Calendar</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Academic and Administrative Plan</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Departments <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Marathi </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Hindi</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Engilsh</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">History</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Geography</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Economics </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Commerce </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. B. A.</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. C. A</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">B. C. S.</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Chemistry</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Computer Science</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Admissions<i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Programmes and Courses</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Admission Procedure</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Admission Committee</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Prospectus </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Online Provisional Admission Form</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Fee Structure</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">MoUs, Linkages and Collaborations <i
+                                                        class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">MoU, Linkages and Collaborations : Documents</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">MoU, Linkages and Collaborations : Activities
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Placement Cell <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Placement Cell </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Activities</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Placement of Students </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Examination <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Exam Committee </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">University Exam </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">College Exam</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">CIE – Continuous Internal Evaluation</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- academics ends -->
+                                <!-- library starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Library<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">E-Resources <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">E-Journals</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">E-Books </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">E-Newspapers </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">E-Pathshala</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">NDL</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Dictionaries and Encyclopaedia</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Shodhganga</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Shodgangotri </a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Shodhsindu</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">MOOCs</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">SWAYAM</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">NPTEL – Local Chapter</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">N-List </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Library at a Glance </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Library Advisory Committee</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Library Staff</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Rules and Regulations</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Library Membership Form</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Syllabus</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Previous Question Papers </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">LMS – Learning Management System</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- library ends -->
+                                <!-- infrastructure starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Infrastructure<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">College</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">ICT Hall </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Smart Classrooms </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Library </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Gymkhana </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Language Lab </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Computer Labs </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Hostel </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Canteen </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Playground</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Indoor Stadium </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- infrastructure ends -->
+                                <!-- IQAC starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">IQAC<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">Supporting Documents<i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">AQAR</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">SSR</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Feedback System <i class="fas fa-caret-down"></i></a>
+                                                <div class="dropdown second">
+                                                    <ul>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Feedback Form<i
+                                                                    class="fas fa-caret-down"></i></a>
+                                                            <div class="dropdown second">
+                                                                <ul>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Students</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Teachers</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Alumni</a>
+                                                                    </li>
+                                                                    <li class="dropdown-link">
+                                                                        <a href="#">Employer</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Feedback Analysis</a>
+                                                        </li>
+                                                        <li class="dropdown-link">
+                                                            <a href="#">Action Taken Repots (ATRs)</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Composition of IQAC</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Policy and Procedure</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">IQAC Mission and Goals </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">IQAC Year-wise Initiatives </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">IQAC Meetings – Proceedings</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Action Plan </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">IDP : Perspective Plan </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Academic and Administrative Audit </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Best Practices</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Institutional Distinctiveness</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">NAAC Certificate </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">AQARs </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Self Study Report (SSR) </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Peer Team Visit</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">NAAC Cycle 4</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- IQAC ends -->
+                                <!-- research starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Research & Publications<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">Research Projects</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Research Papers </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Avishkar Research Convention </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Books </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Yashodhan (A College Magazine)</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Intellectual Property Rights (IPR) </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Code of Ethics </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Plagiarism Forms and Procedure</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- research ends -->
+                                <!-- activities starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Activities<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">Gymkhana and Sport Activities </a>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">NSS Activities </a>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Cultural Activities</a>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Yashorang</a>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Youth Festival </a>
+                                            </li>
+
+                                            <li class="dropdown-link">
+                                                <a href="#">Other </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- activities ends -->
+                                <!-- students corner starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Students’ Corner <i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">Admission </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Gymkhana and Sport Activities</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">NSS Activities </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">ICC – Internal Complaint Committee </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Students’ Council </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Mentor-Mentee </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Spatial Reservation Cell (Standing Committee)</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Discipline, Grievance and Redressal Committee</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Anti-Ragging Committee (As per SU Statute)</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Minority and Equal Opportunity Cell</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Placement Cell</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Examination</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Syllabus</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- students corner ends -->
+                                <!-- alumni starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Alumni Association <i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">Online Alumni Registration</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Alumni Association</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Alumni Initiatives </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- alumni ends -->
+                                <!-- RTI starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">RTI<i class="fas fa-caret-down"></i></a>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li class="dropdown-link">
+                                                <a href="#">RTI Act, 2005</a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">RTI Committee Composition </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">RTI Statutory Declaration </a>
+                                            </li>
+                                            <li class="dropdown-link">
+                                                <a href="#">Rights, Works and Duties </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- RTI ends -->
+                                <!-- gallery starts -->
+                                <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Gallery</a>
+                                </li>
+                                <!-- gallery ends -->
+                                <!-- Contact us starts -->
+                                <li class="contact"><a href="#" style="color: #fff;">Contact</a></li>
+                                <!-- <li class="nav-link" style="--i: .85s">
+                                    <a href="#">Contact Us</i></a>
+                                    </li> -->
+                                <!-- contact us ends -->
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+                    <div class="hamburger-menu-container">
+                        <div class="hamburger-menu">
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--navbar ends-->
+
+<div class="new" style="min-height: 200vh;">
+    <div class="about-us">
+        <h1><span style="color:orangered">W</span>elcome</h1>
+        <div class="info">
+            <h2>About <span style="color:orangered">Islampur</span></h2>
+    </div>
+        <div class="para">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem Facilis<br>
+                omnis debitis illo earum dolores aperiam, dignissimos a corporis cum, ullam ipsa<br>
+                suscipit laudantium vitae, eos reiciendis commodi saepe impedit? <br></p>
+        </div>
+        <div class="about-img">
+            <img src="https://ycmislampur.ac.in/website/img/College%20Photo.jpg">
+        </div>
+</div>
+        <footer>
+            <div class="row">
+                <div class="col">
+                    <img src="data:image/jpeg;base64,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" class="logo">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia accusantium asperiores magnam sed soluta provident, esse neque labore beatae, necessitatibus facere sint rem dolorum? Facilis vel quia minima iure neque?</p>
+                    <button><a href="#">Read More </a></button>
+                </div>
+                <div class="col">
+                    <h3>Office <div class="underline"><span></span></div>
+                    </h3>
+                    <p>MagicCode</p>
+                    <p>Pune</p>
+                    <p>Maharashtra, India</p>
+                    <p class="email-id">abc@gmail.com</p>
+                    <h4 style="color:#fff">+91-0123456789</h4>
+                </div>
+                <div class="col">
+                    <h3>Quick Links <div class="underline"><span></span></div>
+    
+                    </h3>
+                    <ul>
+                        <li><a href="">Student Satisfaction Survey (SSS)</a></li>
+                        <li><a href="">Feedback Forms</a></li>
+                        <li><a href="">Library Membership Form</a></li>
+                        <li><a href="https://www.ugc.gov.in/">UGC</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Quick Links <div class="underline"><span></span></div>
+                    </h3>
+                    <ul>
+                        <li><a href="https://aishe.gov.in/aishe/home">AISHE</a></li>
+                        <li><a href="https://nlist.inflibnet.ac.in/">N-List</a></li>
+                        <li><a href="">Admission</a></li>
+                        <li><a href="">Advertisement</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Our Location<div class="underline"><span></span></div>
+                    </h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.17005851687!2d73.6981553041223!3d18.52454504095413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717823249417!5m2!1sen!2sin" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+    
+            <hr>
+            <p class="copyright"> Copyright &#169;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | Designed & Developed By <a
+                    href="#" target="_blank">MagicCode</a>
+            </p>
+        </footer>
+</body>
+</html>

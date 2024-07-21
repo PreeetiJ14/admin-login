@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(https://sp.yimg.com/ib/th?id=OIP.Idr00zjNPPrHAthAdp-QKwHaLH&pid=Api&w=148&h=148&c=7&dpr=2&rs=1) !important;
+            background-repeat: no-repeat;
+            background-size: cover !important;
+        }
+        .btn-login {
+            padding: 7px 15px;
+            background-color: rgba(15, 15, 88, 0.789);
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .overlay{
+            width:100%;
+            position: fixed;
+            top:0%;
+            background: rgba(0,0,0,0.5);
+            height:100vh;
+            z-index: -1;
+            opacity: 0;
+            transition: 1s;
+        }
+        .showoverlay{
+            opacity: 1;
+            z-index: 1;
+        }
+        .loginform{
+            border-radius: 2px;
+            background-color: #fff;
+            width: 450px;
+            padding:30px 20px;
+            position:absolute;
+            top:-50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            box-shadow: 0px 0px 10px 3px #151414;
+            color:#000;
+            transition: 2s;
+            z-index: 9;
+        }
+        .showloginform{
+            top:50%;
+
+        }
+        .loginform input{
+            width:100%;
+            height:35px;
+            margin-bottom:15px;
+            padding:0px 10px;
+        }
+        .loginform span{
+            position:absolute;
+            right:0;
+            top:0;
+            width:30px;
+            height:22px;
+            text-align: center;
+            color:#fff;
+            line-height:22px;
+            cursor: pointer;
+            background-color: rgba(204, 8, 8, 0.789);
+        }
+        label{
+            left:0;
+            position:relative;
+        }
+        .loginform button {
+        background-color: rgb(6, 6, 86) ;
+        color: #fff;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+    .loginform form{
+        display:flex;
+        gap:15px;
+    }
+    label{
+        text-transform: uppercase;
+        margin-top:10px;
+    }
+    </style>
+</head>
+
+<body>
+    <button class="btn-login">Login</button>
+    <div class="overlay" onclick="closeModal()"></div>
+    <div class="loginform">
+        <span>&times</span>
+        <div>
+            <form action="">
+                <label for="">Username:</label>
+                <input type="text" placeholder="Enter Your Name" />
+            </form>
+        </div>
+
+        <div>
+            <form action="">
+                <label for="Password">Password:</label>
+                <input type="password" placeholder="Enter Your Password" />
+            </form>
+        </div>
+        <button type="submit">LOGIN</button>
+    </div>
+</body>
+<script>
+    function showModal() {
+        document.querySelector('.overlay').classList.add('showoverlay');
+        document.querySelector('.loginform').classList.add('showloginform');
+    }
+    function closeModal() {
+        document.querySelector('.overlay').classList.remove('showoverlay');
+        document.querySelector('.loginform').classList.remove('showloginform');
+    }
+    var btnlogin=document.querySelector(".btn-login");//button
+    btnlogin.addEventListener("click",showModal)//button click
+
+    var c=document.querySelector("span");
+    c.addEventListener("click",closeModal)
+</script>
+
+</html>
